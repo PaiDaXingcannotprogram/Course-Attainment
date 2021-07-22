@@ -1,0 +1,65 @@
+server:
+  port: 8001
+  servlet:
+    encoding:
+      charset: UTF-8
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/courseattainment?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: blx1906973876
+    druid:
+      min-idle: 5
+
+      default-auto-commit: true
+      max-wait: 3600
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+  redis:
+    host: 47.98.146.184
+
+    port: 6379
+
+    database: 0
+
+    timeout: 10000ms
+
+
+    lettuce:
+      pool:
+
+        max-active: 8
+
+        max-wait: 10000ms
+
+        max-idle: 200
+
+        min-idle: 5
+    password: 135126
+  main:
+    allow-bean-definition-overriding: true
+
+
+mybatis:
+    type-aliases-package: com.go.courseattainment.entities
+    configuration:
+      map-underscore-to-camel-case: true
+      default-fetch-size: 100
+      default-statement-timeout: 3000
+    mapper-locations: classpath:com/go/courseattainment/mapper/*.xml
+
+jwt:
+  secret: course
+  expiration: 1296000
+  tokenStart: "Bearer "
+  tokenName: Authorization
+  defaultPassword: "123456"
+img:
+  location: /home/admin/photo/
+  url: http://baobao.mynatapp.cc
